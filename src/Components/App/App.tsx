@@ -1,6 +1,6 @@
 import React from 'react';
-import Bubble from './Components/UI/Bubble';
-import Frame from './Components/UI/Frame';
+import Bubble from '../UI/Bubble';
+import Frame from '../UI/Frame';
 import classes from "./App.module.scss";
 
 function App() {
