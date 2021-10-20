@@ -11,15 +11,6 @@ body {
   overflow: hidden;
 }
 
-.App {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: relative;
-  background: linear-gradient(135deg, $color_primary1, $color_primary2);
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
