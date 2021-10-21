@@ -1,21 +1,27 @@
 import TimerSelectBtn from "./TimerSelectBtn";
 import classes from "./TimerSelectBtns.module.scss";
+import { useSelector } from "react-redux";
+import {RootState, useAppDispatch} from "../../Store/index";
+import { timerActions } from "../../Store/timer-slice";
 
 const TimerSelectBtns:React.FC = (props) => {
-    const handleWorkClick=() => {
-
+    const selectedTimer = useSelector((state: RootState) => state.timer.selectedTimer)
+    const dispatch = useAppDispatch();
+    
+    const handleWorkClick=() => {        
+        dispatch(timerActions.changeSelectedTimer(0))    
     }
-    const handleShortBreakClick= ()=> {
-
+    const handleShortBreakClick= ()=> {        
+        dispatch(timerActions.changeSelectedTimer(1))
     }
-    const handleLongBreakClick= ()=> {
-        
+    const handleLongBreakClick= ()=> {        
+        dispatch(timerActions.changeSelectedTimer(2))
     }
 
-    return<div className={classes.buttonpane}>
-        <TimerSelectBtn title="Work" onClick={handleWorkClick} selected={false}></TimerSelectBtn>
-        <TimerSelectBtn title="Short Break" onClick={handleShortBreakClick} selected={false}></TimerSelectBtn>
-        <TimerSelectBtn title="Long break" onClick={handleLongBreakClick} selected={false}></TimerSelectBtn>
+    return<div className={classes.buttonpane}>        
+        <TimerSelectBtn title="Work" onClick={handleWorkClick} selected={selectedTimer === 0}></TimerSelectBtn>
+        <TimerSelectBtn title="Short Break" onClick={handleShortBreakClick} selected={selectedTimer === 1}></TimerSelectBtn>
+        <TimerSelectBtn title="Long break" onClick={handleLongBreakClick} selected={selectedTimer === 2}></TimerSelectBtn>
     </div>
 }
 
