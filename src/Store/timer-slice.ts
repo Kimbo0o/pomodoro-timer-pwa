@@ -1,22 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const timerSlice = createSlice({
     name:"timer",
     initialState: {
         selectedTimer: 0,
-        isRunning: false
+        colorScheme: 1,
+        isRunning: false        
     },
     reducers: {
-        changeSelectedTimer(state, action) {
-            console.log(action)
-            state.selectedTimer = action.payload;
+        changeSelectedTimer(state, action) {            
+            state.selectedTimer = action.payload;     
         },
-        startTimer(state, action) {
-            state.isRunning = true;
-        }, 
-        stopTimer(state, action){
-            state.isRunning = false;
-        }
+        toggleTimer(state, action) {
+            state.isRunning = !state.isRunning;
+        }        
     }
 })
 
