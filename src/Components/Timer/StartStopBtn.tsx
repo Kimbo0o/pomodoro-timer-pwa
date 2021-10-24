@@ -11,7 +11,7 @@ const StartStopBtn: React.FC = (props) => {
   const dispatch = useAppDispatch();
 
   const handleClick = () => {
-    dispatch(timerActions.toggleTimer(null));
+    dispatch(timerActions.toggleTimer());
   };
 
   let classNames = classes["btn-start-stop"];

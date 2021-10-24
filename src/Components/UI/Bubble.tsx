@@ -1,5 +1,7 @@
 import classes from "./Bubble.module.scss";
 import variables from "../../assets/scss/_variables.module.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Store";
 
 const Bubble: React.FC<{
   left?: string;
@@ -7,8 +9,20 @@ const Bubble: React.FC<{
   top: string;
   degree: number;
 }> = (props) => {
-  const color1 = variables.color_primary1;
-  const color2 = variables.color_primary2;
+  const colorScheme = useSelector(
+    (state: RootState) => state.general.colorScheme
+  );
+  let color1, color2;
+  switch (colorScheme) {
+    case 1:
+      color1 = variables.color_primary1;
+      color2 = variables.color_primary2;
+      break;
+    case 2:
+      color1 = variables.color_primary3;
+      color2 = variables.color_primary4;
+      break;
+  }
   const styles: any = {
     top: props.top,
     background:
