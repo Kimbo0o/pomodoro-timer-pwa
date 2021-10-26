@@ -5,6 +5,8 @@
   height: 100vh;
   overflow: hidden;
   position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   &--color-scheme-1 {
     background: linear-gradient(135deg, $color_primary1, $color_primary2);
@@ -13,9 +15,4 @@
   &--color-scheme-2 {
     background: linear-gradient(135deg, $color_primary3, $color_primary4);
   }
-}
-
-.main-container {
-  overflow-x: hidden;
-  overflow-y: auto;
 }
