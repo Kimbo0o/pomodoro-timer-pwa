@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ITask } from "../Models/Tasks";
+import { v4 as uuidv4 } from "uuid";
 
 const tasksSlice = createSlice({
   name: "tasks",
@@ -7,8 +8,22 @@ const tasksSlice = createSlice({
     tasks: [] as ITask[],
   },
   reducers: {
-    addTask(state, action) {
-      state.tasks.push(action.payload);
+    addNewTask(state, action) {
+      const title: string = action.payload;
+      state.tasks.push({
+        id: uuidv4(),
+        checked: false,
+        title,
+      });
+    },
+    updateTask(state, action) {
+      const updatedTask: ITask = action.payload;
+      const index = state.tasks.findIndex((task) => task.id === updatedTask.id);
+      state.tasks[index] = updatedTask;
+    },
+    deleteTask(state, action) {
+      const id: string = action.payload;
+      state.tasks = state.tasks.filter((task) => task.id !== id);
     },
   },
 });

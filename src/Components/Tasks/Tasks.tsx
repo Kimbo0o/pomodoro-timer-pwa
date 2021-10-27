@@ -8,12 +8,6 @@ const Tasks: React.FC = (props) => {
   const dispatch = useAppDispatch();
   const tasks = useSelector((state: RootState) => state.tasks.tasks);
 
-  const updateTaskHandler = (task: ITask) => {};
-
-  const deleteTaskHandler = (task: ITask) => {};
-
-  const addTaskHandler = (task: ITask) => {};
-
   return (
     <>
       <h1 className={classes.header}>Tasks</h1>
@@ -26,12 +20,10 @@ const Tasks: React.FC = (props) => {
               inpChecked={task.checked}
               isNew={false}
               id={task.id}
-              updateTask={updateTaskHandler}
-              deleteTask={deleteTaskHandler}
             ></Task>
           );
         })}
-        <Task isNew={true} addTask={addTaskHandler}></Task>
+        <Task isNew={true}></Task>
       </ul>
     </>
   );
