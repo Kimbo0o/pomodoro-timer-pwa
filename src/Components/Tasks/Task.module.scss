@@ -10,6 +10,10 @@
   display: flex;
   align-items: flex-start;
 
+  &--alternative-color {
+    background-color: $color_primary3;
+  }
+
   .cb-wrap {
     width: rem(41px);
     user-select: none;
@@ -30,6 +34,7 @@
     .delete-btn {
       border: none;
       background-color: transparent;
+      cursor: pointer;
     }
 
     .trash {
@@ -85,6 +90,12 @@
       &::placeholder {
         color: rgba(255, 255, 255, 0.55);
       }
+    }
+  }
+
+  .textarea {
+    &:focus {
+      outline: none !important;
     }
   }
 }

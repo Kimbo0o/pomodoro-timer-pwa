@@ -1,0 +1,118 @@
+@import "../../assets/scss/import";
+
+// Animated background: Credits: https://wweb.dev/resources/animated-css-background-generator/
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.background li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: animate 19s linear infinite;
+}
+
+.background li:nth-child(0) {
+  left: 73%;
+  width: 109px;
+  height: 109px;
+  bottom: -109px;
+  animation-delay: 1s;
+}
+.background li:nth-child(1) {
+  left: 50%;
+  width: 124px;
+  height: 124px;
+  bottom: -124px;
+  animation-delay: 5s;
+}
+.background li:nth-child(2) {
+  left: 69%;
+  width: 189px;
+  height: 189px;
+  bottom: -189px;
+  animation-delay: 8s;
+}
+.background li:nth-child(3) {
+  left: 85%;
+  width: 127px;
+  height: 127px;
+  bottom: -127px;
+  animation-delay: 14s;
+}
+.background li:nth-child(4) {
+  left: 43%;
+  width: 141px;
+  height: 141px;
+  bottom: -141px;
+  animation-delay: 18s;
+}
+.background li:nth-child(5) {
+  left: 21%;
+  width: 106px;
+  height: 106px;
+  bottom: -106px;
+  animation-delay: 12s;
+}
+.background li:nth-child(6) {
+  left: 17%;
+  width: 127px;
+  height: 127px;
+  bottom: -127px;
+  animation-delay: 27s;
+}
+.background li:nth-child(7) {
+  left: 56%;
+  width: 167px;
+  height: 167px;
+  bottom: -167px;
+  animation-delay: 23s;
+}
+.background li:nth-child(8) {
+  left: 54%;
+  width: 152px;
+  height: 152px;
+  bottom: -152px;
+  animation-delay: 22s;
+}
+.background li:nth-child(9) {
+  left: 58%;
+  width: 139px;
+  height: 139px;
+  bottom: -139px;
+  animation-delay: 42s;
+}
+
+//custom
+.background {
+  z-index: -1;
+  &--color-scheme-1 {
+    background: $color_primary2;
+  }
+
+  &--color-scheme-2 {
+    background: $color_primary4;
+  }
+}

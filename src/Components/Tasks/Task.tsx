@@ -4,9 +4,10 @@ import trash from "../../assets/img/trash.svg";
 import plus from "../../assets/img/plus.svg";
 import check from "../../assets/img/check.svg";
 import TextareaAutosize from "react-textarea-autosize";
-import { useAppDispatch } from "../../Store";
+import { RootState, useAppDispatch } from "../../Store";
 import { tasksActions } from "../../Store/tasks-slice";
 import { ITask } from "../../Models/Tasks";
+import { useSelector } from "react-redux";
 
 const Task: React.FC<{
   inpTitle?: string;
@@ -17,6 +18,9 @@ const Task: React.FC<{
   const [title, setTitle] = useState(props.inpTitle ? props.inpTitle : "");
   const [checked, setChecked] = useState(
     props.inpChecked ? props.inpChecked : false
+  );
+  const colorScheme = useSelector(
+    (state: RootState) => state.general.colorScheme
   );
   const dispatch = useAppDispatch();
 
@@ -57,8 +61,12 @@ const Task: React.FC<{
     dispatch(tasksActions.deleteTask(props.id));
   };
 
+  let classNames = classes.task;
+  if (colorScheme === 2) {
+    classNames += " " + classes["task--alternative-color"];
+  }
   return (
-    <li className={classes.task}>
+    <li className={classNames}>
       {!props.isNew && ( // existing tasks
         <>
           <div className={classes["cb-wrap"]}>
@@ -83,6 +91,7 @@ const Task: React.FC<{
           </div>
           <div className={classes["task-title"]}>
             <TextareaAutosize
+              className={classes.textarea}
               value={title}
               onChange={handleTitleChange}
             ></TextareaAutosize>
@@ -102,6 +111,7 @@ const Task: React.FC<{
           <div className={classes["cb-wrap"]}></div>
           <div className={classes["task-title"]}>
             <TextareaAutosize
+              className={classes.textarea}
               placeholder="Enter new task..."
               value={title}
               onChange={handleTitleChange}
