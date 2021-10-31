@@ -22,4 +22,9 @@
 .content-wrap {
   max-width: 1500px;
   flex-grow: 1;
+
+  &::after {
+    content: "";
+    padding: rem(10px);
+  }
 }
