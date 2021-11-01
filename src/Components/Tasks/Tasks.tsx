@@ -1,11 +1,9 @@
 import classes from "./Tasks.module.scss";
-import { ITask } from "../../Models/Tasks";
 import Task from "./Task";
-import { RootState, useAppDispatch } from "../../Store";
+import { RootState } from "../../Store";
 import { useSelector } from "react-redux";
 
 const Tasks: React.FC = (props) => {
-  const dispatch = useAppDispatch();
   const tasks = useSelector((state: RootState) => state.tasks.tasks);
 
   return (
