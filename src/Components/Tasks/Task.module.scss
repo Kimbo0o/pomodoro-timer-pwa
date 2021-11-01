@@ -8,7 +8,7 @@
   padding: 0 rem(16px);
   background-color: $color_primary1;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 
   &--alternative-color {
     background-color: $color_primary3;
@@ -45,7 +45,6 @@
 
   .cb-wrap,
   .function-wrap {
-    padding: rem(16px) 0;
   }
 
   .rounded-btn {
