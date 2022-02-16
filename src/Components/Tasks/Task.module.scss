@@ -15,7 +15,7 @@
   }
 
   .cb-wrap {
-    width: rem(41px);
+    flex: 0 0 rem(41px);
     user-select: none;
     input {
       border: none;
@@ -27,7 +27,7 @@
   }
 
   .function-wrap {
-    width: rem(41px);
+    flex: 0 0 rem(41px);
     text-align: center;
     user-select: none;
 
@@ -35,6 +35,7 @@
       border: none;
       background-color: transparent;
       cursor: pointer;
+      padding: 0;
     }
 
     .trash {
